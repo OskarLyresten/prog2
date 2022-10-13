@@ -38,7 +38,7 @@ def main():
 	plt.plot(N, py_times)
 	plt.plot(N, numba_times)
  
-	plt.legend("Python", "Numba")
+	plt.legend(["Python", "Numba"])
  
 	plt.savefig("plot.png")
 
