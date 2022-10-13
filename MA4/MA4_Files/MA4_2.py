@@ -63,6 +63,7 @@ def main():
 	plt.plot(steps, numba_times)
 	plt.plot(steps, cpp_times)
 	
+	plt.title(f"fib(47):   Numba: {numba47:.5} s     C++: {cpp47:.5} s")
 	plt.xlabel("n")
 	plt.ylabel("Time for fib(n)")
  
