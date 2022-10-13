@@ -25,7 +25,7 @@ def main():
 	py_times = []
 	numba_times = []
 	cpp_times = []
-	steps = range(40)
+	steps = range(30,45)
 	
 	for n in steps:
 		print(f"Step: {n}")
