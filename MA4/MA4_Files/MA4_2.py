@@ -28,7 +28,8 @@ def main():
 	steps = range(30,45)
 	
 	for n in steps:
-		print(f"Step: {n}")
+		print(f"Step: {n}", end ="")
+		step_timer = pc()
 		start = pc()		# Regular Python 
 		fib_py(n)
 		py_times.append(pc()-start)
@@ -41,7 +42,9 @@ def main():
 		start = pc()
 		f.fib()
 		cpp_times.append(pc()-start)
-	
+
+		print(f"{pc()-step_timer:.8}")
+  
 	start = pc()
 	fib_numba(47)
 	numba47 = pc()-start	# Time for fib(47) with Numba
