@@ -21,6 +21,19 @@ def fib_numba(n):
 
 
 def main():
+	
+	start = pc()
+	fib_numba(47)
+	numba47 = pc()-start	# Time for fib(47) with Numba
+ 
+	f = Person(47)
+	start = pc()
+	f.fib()
+	cpp47 = pc()-start	# Time for fib(47) with Numba
+ 
+	print(f"fib(47) with Numba took {numba47} seconds")
+	print(f"fib(47) with C++ took {cpp47} seconds\n")
+ 
  
 	py_times = []
 	numba_times = []
@@ -45,14 +58,7 @@ def main():
 
 		print(f"{pc()-step_timer:.8} seconds")
   
-	start = pc()
-	fib_numba(47)
-	numba47 = pc()-start	# Time for fib(47) with Numba
- 
-	f = Person(47)
-	start = pc()
-	f.fib()
-	cpp47 = pc()-start	# Time for fib(47) with Numba
+	
  
  
 	plt.plot(steps, py_times)
@@ -66,8 +72,7 @@ def main():
  
 	plt.savefig("plot.png")
  
-	print(f"fib(47) with Numba took {numba47} seconds")
-	print(f"fib(47) with C++ took {cpp47} seconds")
+
 
 if __name__ == '__main__':
 	main()
