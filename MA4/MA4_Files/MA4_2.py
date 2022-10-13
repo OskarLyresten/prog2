@@ -46,8 +46,8 @@ def main():
 	plt.plot(steps, numba_times)
 	plt.plot(steps, cpp_times)
 	
-	plt.xlabel("Fib(n)")
-	plt.ylabel("Time")
+	plt.xlabel("n")
+	plt.ylabel("Time for fib(n)")
  
 	plt.legend(["Python", "Numba", "C++"])
  
