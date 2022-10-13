@@ -29,11 +29,11 @@ def main():
 	for n in N:
 		start = pc()
 		fib_py(n)
-		py_times.append(pc()-start())
+		py_times.append(pc()-start)
   
 		start = pc()
 		fib_numba(n)
-		numba_times.append(pc()-start())
+		numba_times.append(pc()-start)
   
 	plt.plot(N, py_times)
 	plt.plot(N, numba_times)
