@@ -64,7 +64,7 @@ def main():
 	plt.savefig("plot.png")
  
 	print(f"fib(47) with Numba took {numba47} seconds")
- 	print(f"fib(47) with C++ took {cpp47} seconds")
+	print(f"fib(47) with C++ took {cpp47} seconds")
 
 if __name__ == '__main__':
 	main()
