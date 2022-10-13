@@ -28,11 +28,11 @@ def main():
 	steps = range(45)
 	
 	for n in steps:
-		start = pc()		# Regular python 
+		start = pc()		# Regular Python 
 		fib_py(n)
 		py_times.append(pc()-start)
   
-		start = pc()		# Python with numba
+		start = pc()		# Python with Numba
 		fib_numba(n)
 		numba_times.append(pc()-start)
 
@@ -41,6 +41,15 @@ def main():
 		f.fib()
 		cpp_times.append(pc()-start)
 	
+	start = pc()
+	fib_numba(47)
+	numba47 = pc()-start	# Time for fib(47) with Numba
+ 
+	f = Person(47)
+	start = pc()
+	f.fib()
+	cpp47 = pc()-start	# Time for fib(47) with Numba
+ 
  
 	plt.plot(steps, py_times)
 	plt.plot(steps, numba_times)
@@ -53,7 +62,8 @@ def main():
  
 	plt.savefig("plot.png")
  
-	print("Saved plot as plot.png")
+	print(f"fib(47) with Numba took {numba47} seconds")
+ 	print(f"fib(47) with C++ took {cpp47} seconds")
 
 if __name__ == '__main__':
 	main()
