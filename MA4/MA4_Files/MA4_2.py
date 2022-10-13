@@ -21,29 +21,39 @@ def fib_numba(n):
 
 
 def main():
-	
+ 
 	py_times = []
 	numba_times = []
+	cpp_times = []
+	steps = range(45)
 	
-	
-	for n in range(5,30):
-		start = pc()
+	for n in steps:
+		start = pc()		# Regular python 
 		fib_py(n)
 		py_times.append(pc()-start)
   
-		start = pc()
+		start = pc()		# Python with numba
 		fib_numba(n)
 		numba_times.append(pc()-start)
-  
-	plt.plot(range(5,30), py_times)
-	plt.plot(range(5,30), numba_times)
+
+		f = Person(n)		# C++
+		start = pc()
+		f.fib(n)
+		cpp_times.append(pc()-start)
+	
+ 
+	plt.plot(steps, py_times)
+	plt.plot(steps, numba_times)
+	plt.plot(steps, cpp_times)
 	
 	plt.xlabel("Fib(n)")
 	plt.ylabel("Time")
  
-	plt.legend(["Python", "Numba"])
+	plt.legend(["Python", "Numba", "C++"])
  
 	plt.savefig("plot.png")
+ 
+	print("Saved plot as plot.png")
 
 if __name__ == '__main__':
 	main()
