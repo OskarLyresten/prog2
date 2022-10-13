@@ -38,7 +38,7 @@ def main():
 	py_times = []
 	numba_times = []
 	cpp_times = []
-	steps = range(30,45)
+	steps = range(30,46)
 	
 	for n in steps:
 		print(f"Step: {n}: ", end ="")
@@ -59,8 +59,6 @@ def main():
 		print(f"{pc()-step_timer:.8} seconds")
   
 	
- 
- 
 	plt.plot(steps, py_times)
 	plt.plot(steps, numba_times)
 	plt.plot(steps, cpp_times)
