@@ -25,8 +25,8 @@ def main():
 	py_times = []
 	numba_times = []
 	
-	N = [5, 10, 15, 20, 25, 30]
-	for n in N:
+	
+	for n in range(5,30):
 		start = pc()
 		fib_py(n)
 		py_times.append(pc()-start)
@@ -35,8 +35,11 @@ def main():
 		fib_numba(n)
 		numba_times.append(pc()-start)
   
-	plt.plot(N, py_times)
-	plt.plot(N, numba_times)
+	plt.plot(range(5,30), py_times)
+	plt.plot(range(5,30), numba_times)
+	
+	plt.xlabel("Fib(n)")
+	plt.ylabel("Time")
  
 	plt.legend(["Python", "Numba"])
  
