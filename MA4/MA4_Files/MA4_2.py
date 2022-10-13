@@ -38,7 +38,7 @@ def main():
 
 		f = Person(n)		# C++
 		start = pc()
-		f.fib(n)
+		f.fib()
 		cpp_times.append(pc()-start)
 	
  
