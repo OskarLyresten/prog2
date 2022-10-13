@@ -25,9 +25,10 @@ def main():
 	py_times = []
 	numba_times = []
 	cpp_times = []
-	steps = range(45)
+	steps = range(40)
 	
 	for n in steps:
+		print(f"Step: {n}")
 		start = pc()		# Regular Python 
 		fib_py(n)
 		py_times.append(pc()-start)
