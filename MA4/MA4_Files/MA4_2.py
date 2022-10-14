@@ -22,6 +22,7 @@ def fib_numba(n):
 
 def main():
 	
+	# Calcualte fib(47) with Numba and C++
 	start = pc()
 	fib_numba(47)
 	numba47 = pc()-start	# Time for fib(47) with Numba
@@ -30,14 +31,18 @@ def main():
 	start = pc()
 	f.fib()
 	cpp47 = pc()-start	# Time for fib(47) with Numba
- 
+	
 	print(f"fib(47) with Numba took {numba47} seconds")
 	print(f"fib(47) with C++ took {cpp47} seconds\n")
+	
  
- 
-	py_times = []
-	numba_times = []
-	cpp_times = []
+	fig, ax = plt.subplots		# Initiate plot
+	
+	
+	# Compare regular Python, Python with Numba and C++
+	py_times = []		# Times it takes Python to calculate fib(n)
+	numba_times = []	# Times it takes Numba to calculate fib(n)
+	cpp_times = []		# Times it takes C++ to calculate fib(n)
 	steps = range(30,46)
 	
 	for n in steps:
@@ -57,19 +62,51 @@ def main():
 		cpp_times.append(pc()-start)
 
 		print(f"{pc()-step_timer:.8} seconds")
+	
+	# First subplot
+	ax[0].plot(steps, py_times)
+	ax[0].plot(steps, numba_times)
+	ax[0].plot(steps, cpp_times)
+	
+	ax[0].xlabel("n")
+	ax[0].ylabel("Time for fib(n)")
+ 
+	ax[0].legend(["Python", "Numba", "C++"])
   
 	
-	plt.plot(steps, py_times)
-	plt.plot(steps, numba_times)
-	plt.plot(steps, cpp_times)
+	# Comparing regular Python with Python + Numba
+	py_times = []		# Times it takes Python to calculate fib(n)
+	numba_times = []	# Times it takes Numba to calculate fib(n)
+	cpp_times = []		# Times it takes C++ to calculate fib(n)
+	steps = range(20,30)
 	
-	plt.title(f"fib(47):   Numba: {numba47:.5} s     C++: {cpp47:.5} s")
-	plt.xlabel("n")
-	plt.ylabel("Time for fib(n)")
+	for n in steps:
+		print(f"Step: {n}: ", end ="")
+		step_timer = pc()
+		start = pc()		# Regular Python 
+		fib_py(n)
+		py_times.append(pc()-start)
+	
+		start = pc()		# Python with Numba
+		fib_numba(n)
+		numba_times.append(pc()-start)
+
+		print(f"{pc()-step_timer:.8} seconds")
+  
+	
+	# Second subplot
+	ax[1].plot(steps, py_times)
+	ax[1].plot(steps, numba_times)
+	
+	ax[1].xlabel("n")
+	ax[1].ylabel("Time for fib(n)")
  
-	plt.legend(["Python", "Numba", "C++"])
+	ax[1].legend(["Python", "Numba"])
+	
  
-	plt.savefig("plot.png")
+	fig.suptitle(f"fib(47):   Numba: {numba47:.5} s     C++: {cpp47:.5} s")
+ 
+	fig.savefig("plot.png")
  
 
 
