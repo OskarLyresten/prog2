@@ -68,8 +68,8 @@ def main():
 	ax[0].plot(steps, numba_times)
 	ax[0].plot(steps, cpp_times)
 	
-	ax[0].xlabel("n")
-	ax[0].ylabel("Time for fib(n)")
+	ax[0].set_xlabel("n")
+	ax[0].set_ylabel("Time for fib(n)")
  
 	ax[0].legend(["Python", "Numba", "C++"])
   
@@ -98,8 +98,8 @@ def main():
 	ax[1].plot(steps, py_times)
 	ax[1].plot(steps, numba_times)
 	
-	ax[1].xlabel("n")
-	ax[1].ylabel("Time for fib(n)")
+	ax[1].set_xlabel("n")
+	ax[1].set_ylabel("Time for fib(n)")
  
 	ax[1].legend(["Python", "Numba"])
 	
