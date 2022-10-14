@@ -36,7 +36,7 @@ def main():
 	print(f"fib(47) with C++ took {cpp47} seconds\n")
 	
  
-	fig, ax = plt.subplots		# Initiate plot
+	fig, ax = plt.subplots(1,2)		# Initiate plot
 	
 	
 	# Compare regular Python, Python with Numba and C++
