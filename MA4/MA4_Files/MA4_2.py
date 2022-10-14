@@ -78,7 +78,7 @@ def main():
 	py_times = []		# Times it takes Python to calculate fib(n)
 	numba_times = []	# Times it takes Numba to calculate fib(n)
 	cpp_times = []		# Times it takes C++ to calculate fib(n)
-	steps = range(20,30)
+	steps = range(20,31)
 	
 	for n in steps:
 		print(f"Step: {n}: ", end ="")
@@ -99,7 +99,6 @@ def main():
 	ax[1].plot(steps, numba_times)
 	
 	ax[1].set_xlabel("n")
-	ax[1].set_ylabel("Time for fib(n)")
  
 	ax[1].legend(["Python", "Numba"])
 	
