@@ -23,17 +23,17 @@ def fib_numba(n):
 def main():
 	
 	# Calcualte fib(47) with Numba and C++
-	start = pc()
-	fib_numba(47)
-	numba47 = pc()-start	# Time for fib(47) with Numba
+	#start = pc()
+	numba47 = fib_numba(47)
+	#numba47 = pc()-start	# Time for fib(47) with Numba
  
 	f = Person(47)
-	start = pc()
-	f.fib()
-	cpp47 = pc()-start	# Time for fib(47) with Numba
+	#start = pc()
+	cpp47 = f.fib()
+	#cpp47 = pc()-start	# Time for fib(47) with Numba
 	
-	print(f"fib(47) with Numba took {numba47} seconds")
-	print(f"fib(47) with C++ took {cpp47} seconds\n")
+	print(f"fib(47) with Numba = {numba47}")
+	print(f"fib(47) with C++ = {cpp47}\n")
 	
  
 	fig, ax = plt.subplots(1,2)		# Initiate plot
