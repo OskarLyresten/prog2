@@ -28,8 +28,8 @@ def main():
 	f = Person(47)
 	cpp47 = f.fib()
 	
-	print(f"fib(47) with Numba = {numba47}")
-	print(f"fib(47) with C++ = {cpp47}\n")
+	print(f"fib(47) with Numba = {numba47:,}")
+	print(f"fib(47) with C++ = {cpp47:,}\n")
 	
  
 	fig, ax = plt.subplots(1,2)		# Initiate plot
@@ -99,7 +99,7 @@ def main():
 	ax[1].legend(["Python", "Numba"])
 	
  
-	fig.suptitle(f"Numba: fib(47) = {numba47:.5}     C++: fib(47) = {cpp47:.5}")
+	fig.suptitle(f"Numba: fib(47) = {numba47:.}    C++: fib(47) = {cpp47:.}")
  
 	fig.savefig("plot.png")
  
