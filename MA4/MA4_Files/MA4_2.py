@@ -23,14 +23,10 @@ def fib_numba(n):
 def main():
 	
 	# Calcualte fib(47) with Numba and C++
-	#start = pc()
 	numba47 = fib_numba(47)
-	#numba47 = pc()-start	# Time for fib(47) with Numba
  
 	f = Person(47)
-	#start = pc()
 	cpp47 = f.fib()
-	#cpp47 = pc()-start	# Time for fib(47) with Numba
 	
 	print(f"fib(47) with Numba = {numba47}")
 	print(f"fib(47) with C++ = {cpp47}\n")
@@ -103,7 +99,7 @@ def main():
 	ax[1].legend(["Python", "Numba"])
 	
  
-	fig.suptitle(f"fib(47):   Numba: {numba47:.5} s     C++: {cpp47:.5} s")
+	fig.suptitle(f"Numba: fib(47) = {numba47:.5}     C++: fib(47) = {cpp47:.5}")
  
 	fig.savefig("plot.png")
  
