@@ -8,14 +8,14 @@ from matplotlib import pyplot as plt
 
 def fib_py(n):
     if n <= 1:
-        return 1
+        return n
     else:
         return fib_py(n-1) + fib_py(n-2)
     
 @njit
 def fib_numba(n):
     if n <= 1:
-        return 1
+        return n
     else:
         return fib_numba(n-1) + fib_numba(n-2)
 
@@ -99,7 +99,7 @@ def main():
 	ax[1].legend(["Python", "Numba"])
 	
  
-	fig.suptitle(f"Numba: fib(47) = {numba47:.}    C++: fib(47) = {cpp47:.}")
+	fig.suptitle(f"Numba: fib(47) = {numba47:,}    C++: fib(47) = {cpp47:,}")
  
 	fig.savefig("plot.png")
  
